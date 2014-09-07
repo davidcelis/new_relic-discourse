@@ -19,6 +19,15 @@ Assuming you've followed the above instructions for the Discourse Docker image:
 
 The next time you bootstrap and start a new container for your forums, it'll start reporting into New Relic! Yay!
 
+** Restart Discourse with the new configuration ** 
+
+To apply the new configuration and restart your app with it, do:
+
+    ./launcher rebuild app
+    ./launcher start app
+
+
 [newrelic]: http://www.newrelic.com/
 [discourse-docker]: https://github.com/discourse/discourse/blob/master/docs/INSTALL-digital-ocean.md
 [original]: https://meta.discourse.org/t/newrelic-plugin/12986
+
