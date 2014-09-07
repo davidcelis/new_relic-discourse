@@ -17,15 +17,15 @@ Assuming you've followed the above instructions for the Discourse Docker image:
 - git clone https://github.com/davidcelis/new_relic-discourse.git
 ```
 
-The next time you bootstrap and start a new container for your forums, it'll start reporting into New Relic! Yay!
+The next time you bootstrap and start a new container for your forums, it'll start reporting into New Relic! Yay! To restart Discourse so that it picks up the new plugin, just SSH into your server and do the following:
 
-** Restart Discourse with the new configuration ** 
+```sh
+$ cd /var/discourse
+$ ./launcher rebuild app
+$ ./launcher start app
+```
 
-To apply the new configuration and restart your app with it, do:
-
-    ./launcher rebuild app
-    ./launcher start app
-
+Or, you can visit the `/admin/upgrade` URL on your Discourse installation's frontend and upgrade as you would normally.
 
 [newrelic]: http://www.newrelic.com/
 [discourse-docker]: https://github.com/discourse/discourse/blob/master/docs/INSTALL-digital-ocean.md
