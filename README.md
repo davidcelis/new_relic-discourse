@@ -27,7 +27,7 @@ $ ./launcher start app
 
 Or, you can visit the `/admin/upgrade` URL on your Discourse installation's frontend and upgrade as you would normally.
 
-[newrelic]: http://www.newrelic.com/
+[new-relic]: http://www.newrelic.com/
 [discourse-docker]: https://github.com/discourse/discourse/blob/master/docs/INSTALL-digital-ocean.md
 [original]: https://meta.discourse.org/t/newrelic-plugin/12986
 
