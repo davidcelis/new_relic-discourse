@@ -1,8 +1,10 @@
+#
 # This file configures the New Relic Agent.  New Relic monitors Ruby, Java,
 # .NET, PHP, Python and Node applications with deep visibility and low
 # overhead.  For more information, visit www.newrelic.com.
 #
-# Generated August 14, 2014
+# Generated November 19, 2014, for version 3.9.7.266
+#
 
 
 # Here are the settings that are common to all environments
@@ -38,6 +40,13 @@ common: &default_settings
   #   app_name:
   #       - Ajax Service
   #       - All Services
+  #
+  # Caution: If you change this name, a new application will appear in the New
+  # Relic user interface with the new name, and data will stop reporting to the
+  # app with the old name.
+  #
+  # See https://newrelic.com/docs/site/renaming-applications for more details
+  # on renaming your New Relic applications.
   #
   app_name: <%= ENV['NEW_RELIC_APP_NAME'] %>
 
@@ -106,7 +115,7 @@ common: &default_settings
   # Java: create a config setting called "ignored_params" and set it to
   #     a comma separated list of HTTP parameter names.
   #     ex: ignored_params: credit_card, ssn, password
-  capture_params: true
+  capture_params: false
 
   # Transaction tracer captures deep information about slow
   # transactions and sends this to the New Relic service once a
@@ -156,11 +165,6 @@ common: &default_settings
     # it off. This feature is only available at the Professional and above
     # product levels.
     enabled: true
-
-    # Rails Only - tells error collector whether or not to capture a
-    # source snippet around the place of the error when errors are View
-    # related.
-    capture_source: true
 
     # To stop specific errors from reporting to New Relic, set this property
     # to comma-separated values.  Default is to ignore routing errors,
