@@ -1,8 +1,10 @@
-# This file configures the New Relic Agent.  New Relic monitors
-# Ruby, Java, .NET, PHP, and Python applications with deep visibility and low overhead.
-# For more information, visit www.newrelic.com.
 #
-# Generated March 12, 2014
+# This file configures the New Relic Agent.  New Relic monitors Ruby, Java,
+# .NET, PHP, Python and Node applications with deep visibility and low
+# overhead.  For more information, visit www.newrelic.com.
+#
+# Generated February 17, 2015, for version 3.10.0.279
+#
 
 
 # Here are the settings that are common to all environments
@@ -38,6 +40,13 @@ common: &default_settings
   #   app_name:
   #       - Ajax Service
   #       - All Services
+  #
+  # Caution: If you change this name, a new application will appear in the New
+  # Relic user interface with the new name, and data will stop reporting to the
+  # app with the old name.
+  #
+  # See https://newrelic.com/docs/site/renaming-applications for more details
+  # on renaming your New Relic applications.
   #
   app_name: <%= ENV['NEW_RELIC_APP_NAME'] %>
 
@@ -106,7 +115,7 @@ common: &default_settings
   # Java: create a config setting called "ignored_params" and set it to
   #     a comma separated list of HTTP parameter names.
   #     ex: ignored_params: credit_card, ssn, password
-  capture_params: true
+  capture_params: false
 
   # Transaction tracer captures deep information about slow
   # transactions and sends this to the New Relic service once a
@@ -157,11 +166,6 @@ common: &default_settings
     # product levels.
     enabled: true
 
-    # Rails Only - tells error collector whether or not to capture a
-    # source snippet around the place of the error when errors are View
-    # related.
-    capture_source: true
-
     # To stop specific errors from reporting to New Relic, set this property
     # to comma-separated values.  Default is to ignore routing errors,
     # which are how 404's get triggered.
@@ -185,11 +189,9 @@ common: &default_settings
 
 development:
   <<: *default_settings
-  # Turn off communication to New Relic service in development mode (also
-  # 'enabled').
-  # NOTE: for initial evaluation purposes, you may want to temporarily
-  # turn the agent on in development mode.
-  monitor_mode: false
+  # Turn on communication to New Relic service in development mode
+  monitor_mode: true
+  app_name: <%= ENV['NEW_RELIC_APP_NAME'] %> (Development)
 
   # Rails Only - when running in Developer Mode, the New Relic Agent will
   # present performance information on the last 100 transactions you have
@@ -197,9 +199,6 @@ development:
   # NOTE: There is substantial overhead when running in developer mode.
   # Do not use for production or load testing.
   developer_mode: true
-
-  # Enable textmate links
-  # textmate: true
 
 test:
   <<: *default_settings
@@ -221,4 +220,4 @@ production:
 staging:
   <<: *default_settings
   monitor_mode: true
-  # app_name: My Application (Staging)
+  app_name: <%= ENV['NEW_RELIC_APP_NAME'] %> (Staging)
