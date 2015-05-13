@@ -16,6 +16,11 @@ Assuming you've followed the above instructions for the Discourse Docker image:
 ```yaml
 - git clone https://github.com/davidcelis/new_relic-discourse.git
 ```
+ 7. (optional) In the `run` section at the bottom, add the following to get notified about new 'deployments':
+
+```yaml
+- exec: curl -H "x-api-key:<your_api_key_not_license>" -d "deployment[app_name]=<name_of_your_forums>" -d "deployment[description]=This is an app id deployment" https://api.newrelic.com/deployments.xml
+```
 
 The next time you bootstrap and start a new container for your forums, it'll start reporting into New Relic! Yay! To restart Discourse so that it picks up the new plugin, just SSH into your server and do the following:
 
