@@ -3,18 +3,17 @@
 # .NET, PHP, Python and Node applications with deep visibility and low
 # overhead.  For more information, visit www.newrelic.com.
 #
-# Generated May 08, 2015<%= ", for version #{@agent_version}" if @agent_version %>
-# <%= "\n# #{generated_for_user}\n#" if generated_for_user %>
+# Generated May 26, 2015, for version 3.12.0.288
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
 
 common: &default_settings
   # Required license key associated with your New Relic account.
-  license_key: <%= license_key %>
+  license_key: <%= ENV['NEW_RELIC_LICENSE_KEY'] %>
 
   # Your application name. Renaming here affects where data displays in New
   # Relic.  For more details, see https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/renaming-applications
-  app_name: <%= app_name %>
+  app_name: <%= ENV['NEW_RELIC_APP_NAME'] %>
 
   # To disable the agent regardless of other settings, uncomment the following:
   # agent_enabled: false
@@ -28,7 +27,7 @@ common: &default_settings
 # If your application has other named environments, configure them here.
 development:
   <<: *default_settings
-  app_name: <%= app_name %> (Development)
+  app_name: <%= ENV['NEW_RELIC_APP_NAME'] %> (Development)
 
   # NOTE: There is substantial overhead when running in developer mode.
   # Do not use for production or load testing.
@@ -41,7 +40,7 @@ test:
 
 staging:
   <<: *default_settings
-  app_name: <%= app_name %> (Staging)
+  app_name: <%= ENV['NEW_RELIC_APP_NAME'] %> (Staging)
 
 production:
   <<: *default_settings
