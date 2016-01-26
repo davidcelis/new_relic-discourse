@@ -1,10 +1,10 @@
 # name: New Relic RPM
 # about: Report performance data to http://www.newrelic.com/
-# version: 3.14.1.311
+# version: 3.14.2.312
 # authors: Sam Saffron, David Celis
 
 ENV['NRCONFIG'] = File.expand_path('../newrelic.yml', __FILE__)
-gem 'newrelic_rpm', '3.14.1.311'
+gem 'newrelic_rpm', '3.14.2.312'
 
 NewRelic::Control.instance.init_plugin config: Rails.configuration
 
