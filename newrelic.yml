@@ -3,7 +3,7 @@
 # .NET, PHP, Python and Node applications with deep visibility and low
 # overhead.  For more information, visit www.newrelic.com.
 #
-# Generated February 18, 2016, for version 3.15.0.314
+# Generated May 31, 2016, for version 3.15.2.317
 #<%= "\n# #{generated_for_user}\n#" if generated_for_user %>
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
