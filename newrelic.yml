@@ -3,7 +3,7 @@
 # .NET, PHP, Python and Node applications with deep visibility and low
 # overhead.  For more information, visit www.newrelic.com.
 #
-# Generated March 29, 2017, for version 4.0.0.332
+# Generated July 21, 2017, for version 4.2.0.334
 #<%= "\n# #{generated_for_user}\n#" if generated_for_user %>
 # For full documentation of agent configuration options, please refer to
 # https://docs.newrelic.com/docs/agents/ruby-agent/installation-configuration/ruby-agent-configuration
@@ -29,10 +29,6 @@ common: &default_settings
 development:
   <<: *default_settings
   app_name: <%= ENV['NEW_RELIC_APP_NAME'] %> (Development)
-
-  # NOTE: There is substantial overhead when running in developer mode.
-  # Do not use for production or load testing.
-  developer_mode: true
 
 test:
   <<: *default_settings
