@@ -4,7 +4,7 @@
 # authors: Sam Saffron, David Celis
 
 ENV['NRCONFIG'] = File.expand_path('../newrelic.yml', __FILE__)
-gem 'newrelic_rpm', '5.4.0.347'
+gem 'newrelic_rpm', || ENV['NEW_RELIC_AGENT_VERSION'] || '5.4.0.347'
 
 NewRelic::Control.instance.init_plugin config: Rails.configuration
 
