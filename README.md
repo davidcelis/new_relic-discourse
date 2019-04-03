@@ -11,7 +11,8 @@ Assuming you've followed the above instructions for the Discourse Docker image:
  3. Open up `containers/app.yml`
  4. In the `env:` section, add `NEW_RELIC_LICENSE_KEY: <your_license_key>`
  5. In the `env:` section, add `NEW_RELIC_APP_NAME: <name_of_your_forums>`
- 6. In the `hooks` section at the bottom, add the following to `cmd:`
+ 6. (optional) In the `env` sesion, add `NEW_RELIC_AGENT_VERSION: <version_of_new_relic_agent>`
+ 7. In the `hooks` section at the bottom, add the following to `cmd:`
 
 ```yaml
 - git clone https://github.com/davidcelis/new_relic-discourse.git
